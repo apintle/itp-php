@@ -151,8 +151,9 @@ echo test();
 
 //recuperar datos de otro archivo, por eso funciona el return fuera de una función
 //como sabemos que tiene un valor lo podemos meter a una variable
+
 $configuration = require 'configuration.php';
-print_r ($configuration);
+print_r sueldo ($configuration);
 
 
 
