@@ -1,15 +1,24 @@
 <?php
+namespace Html;
+//namespace Html; //debe llvarlo en la primera linea
 class HtmlRenderer
 {
-   public function render(HtmlElement $element)
+   
+ public function render(HtmlElement $element)
    {
- 
+          $content = $element->getContent();
+          if ($element instanceof HtmlMultiElement) {
+             foreach ($element->getChildren() as $child) {
+               $content .= $this->render($child);
+        }
+      }
+
 
           $html = sprintf(
               '<%s %s>%s</%s>',
           $element->tag,
           $this->renderAttributes($element->getAttributes()),
-          $element->getContent(),
+          $content,
           $element->tag
       );
      return $html;
@@ -23,6 +32,7 @@ class HtmlRenderer
         }
         return $htmlAttributes;
     }
+
 
 
 

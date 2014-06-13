@@ -1,4 +1,5 @@
 <?php
+namespace Html;
 
 class HtmlElement
 {
@@ -18,7 +19,7 @@ class HtmlElement
        $this->attributes = $attributes;
     }
 
-//metodos magicos
+
 
    public function __get($property)
    {
